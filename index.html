@@ -2,61 +2,425 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dascal Tech &mdash; Software Architect & Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --navy: #10243b;
+      --navy-dark: #0b1b2b;
+      --navy-light: #203b5a;
+      --sand: #f7f3ef;
+      --white: #ffffff;
+      --text-dark: #1a1f29;
+      --text-muted: #5a6473;
+      --accent: #2c7df0;
+      --card-shadow: 0 14px 40px rgba(16, 36, 59, 0.12);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy) 100%);
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--white);
+      margin-bottom: 48px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    nav ul {
+      list-style: none;
       margin: 0;
       padding: 0;
       display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      gap: 32px;
+      font-weight: 500;
     }
-    header {
-      background: #222;
-      color: #fff;
-      padding: 2rem 0;
-      text-align: center;
+
+    nav a {
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
     }
+
+    nav a:hover,
+    nav a:focus {
+      opacity: 1;
+    }
+
     main {
-      flex: 1;
+      background: var(--sand);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--card-shadow);
+      padding: 64px;
       display: flex;
       flex-direction: column;
+      gap: 64px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 8px 0 16px;
+      font-size: clamp(36px, 5vw, 54px);
+      color: var(--navy-dark);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0 0 24px;
+      color: var(--text-muted);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .hero .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--navy-light);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 14px 28px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 999px;
+      font-weight: 600;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 30px rgba(44, 125, 240, 0.3);
     }
-    .dummy-box {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 2rem 3rem;
-      text-align: center;
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(44, 125, 240, 0.4);
     }
+
+    .hero img {
+      width: 100%;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      border: 6px solid var(--white);
+      box-shadow: var(--card-shadow);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .about h2 {
+      margin: 0 0 16px;
+      font-size: 28px;
+      color: var(--navy-dark);
+    }
+
+    .about p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .about-portrait {
+      width: 100%;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      border: 4px solid rgba(16, 36, 59, 0.08);
+    }
+
+    .services h2,
+    .work h2,
+    .contact h2 {
+      margin: 0 0 24px;
+      font-size: 24px;
+      color: var(--navy-dark);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(16, 36, 59, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .service-card h3 {
+      margin: 0;
+      font-size: 18px;
+      color: var(--navy-dark);
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .work-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border: 1px solid rgba(16, 36, 59, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .work-card span {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy-light);
+    }
+
+    .work-card h3 {
+      margin: 0;
+      color: var(--navy-dark);
+      font-size: 18px;
+    }
+
+    .contact {
+      background: var(--navy-dark);
+      border-radius: var(--radius-md);
+      padding: 36px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.6;
+    }
+
+    .contact .btn-primary {
+      align-self: flex-start;
+      background: var(--white);
+      color: var(--navy-dark);
+      box-shadow: none;
+    }
+
     footer {
-      background: #222;
-      color: #fff;
+      margin-top: 48px;
       text-align: center;
-      padding: 1rem 0;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+
+      main {
+        padding: 40px;
+      }
+
+      .hero,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .hero img,
+      .about-portrait {
+        max-width: 260px;
+        justify-self: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 32px 18px 48px;
+      }
+
+      main {
+        padding: 32px 24px;
+        gap: 48px;
+      }
+
+      .services-grid,
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        gap: 20px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Dummy Portfolio Page</h1>
-    <p>Testing GitHub Pages Deployment</p>
-  </header>
-  <main>
-    <div class="dummy-box">
-      <h2>Hello, World!</h2>
-      <p>This is a dummy page to test if your GitHub Pages site works.</p>
-      <p>Edit <code>index.html</code> to build your awesome portfolio!</p>
-    </div>
-  </main>
-  <footer>
-    &copy; 2025 Your Name. Powered by GitHub Pages.
-  </footer>
+  <div class="page">
+    <header>
+      <div class="brand">Dascal Tech</div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Software Architect & Developer</div>
+          <h1>Alexandru Dascal</h1>
+          <p>Building scalable, reliable systems by combining thoughtful architecture with hands-on engineering.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="mailto:alex@dascal.tech">Contact</a>
+          </div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Portrait of Alexandru Dascal">
+      </section>
+
+      <section class="about">
+        <div>
+          <h2>About</h2>
+          <p>I am a software architect and developer with a passion for designing and building efficient, high-quality software systems. I thrive on solving complex challenges and delivering value through well-engineered solutions.</p>
+        </div>
+        <img class="about-portrait" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80" alt="Alexandru at work">
+      </section>
+
+      <section id="services" class="services">
+        <h2>Services</h2>
+        <div class="services-grid">
+          <article class="service-card">
+            <h3>Software Architecture</h3>
+            <p>Designing robust system architectures, ensuring scalability, reliability, and clarity across all tiers.</p>
+          </article>
+          <article class="service-card">
+            <h3>Full-Stack Development</h3>
+            <p>Hands-on development across modern web stacks with a focus on quality, testing, and maintainability.</p>
+          </article>
+          <article class="service-card">
+            <h3>System Design & Scalability</h3>
+            <p>Helping teams design systems that grow with their business through performance tuning and capacity planning.</p>
+          </article>
+          <article class="service-card">
+            <h3>Technical Mentoring</h3>
+            <p>Supporting engineers and teams with best practices, architecture reviews, and collaborative problem solving.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="work" class="work">
+        <h2>Selected Work</h2>
+        <div class="work-grid">
+          <article class="work-card">
+            <span>Project One</span>
+            <h3>Scalable SaaS Platform</h3>
+            <p>Built a resilient cloud-native platform serving thousands of concurrent customers worldwide.</p>
+          </article>
+          <article class="work-card">
+            <span>Project Two</span>
+            <h3>Data Processing Pipeline</h3>
+            <p>Architected and implemented a real-time data processing pipeline with advanced observability.</p>
+          </article>
+          <article class="work-card">
+            <span>Project Three</span>
+            <h3>Legacy Modernization</h3>
+            <p>Led the modernization of a mission-critical legacy system, improving reliability and developer velocity.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <h2>Get in touch</h2>
+        <p>Have a project in mind or need support with your engineering roadmap? Let's discuss how we can collaborate.</p>
+        <a class="btn-primary" href="mailto:alex@dascal.tech">Email Alex</a>
+      </section>
+    </main>
+
+    <footer>
+      &copy; <span id="year"></span> Dascal Tech. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+  </script>
 </body>
 </html>
