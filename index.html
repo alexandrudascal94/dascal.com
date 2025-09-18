@@ -7,6 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="fav-light.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="fav-light.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="fav-light.png">
   <style>
     :root {
       --navy: #10243b;
@@ -53,11 +56,10 @@
       margin-bottom: 48px;
     }
 
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 14px;
+    header img {
+      width: clamp(140px, 20vw, 240px);
+      height: auto;
+      display: block;
     }
 
     nav ul {
@@ -328,99 +330,99 @@
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="brand">Dascal Tech</div>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+<div class="page">
+  <header>
+    <img src="logo.png" alt="Dascal Tech Logo">
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-      <section class="hero">
-        <div>
-          <div class="eyebrow">Software Architect & Developer</div>
-          <h1>Alexandru Dascal</h1>
-          <p>Building scalable, reliable systems by combining thoughtful architecture with hands-on engineering.</p>
-          <div class="hero-actions">
-            <a class="btn-primary" href="mailto:alex@dascal.tech">Contact</a>
-          </div>
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Technical Lead & Senior Software Engineer</div>
+        <h1>Alexandru Dascal</h1>
+        <p>Building scalable, reliable systems by combining thoughtful architecture with hands-on engineering.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="mailto:alexandru@dascal.nl">Contact</a>
         </div>
-        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Portrait of Alexandru Dascal">
-      </section>
+      </div>
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Portrait of Alexandru Dascal">
+    </section>
 
-      <section class="about">
-        <div>
-          <h2>About</h2>
-          <p>I am a software architect and developer with a passion for designing and building efficient, high-quality software systems. I thrive on solving complex challenges and delivering value through well-engineered solutions.</p>
-        </div>
-        <img class="about-portrait" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80" alt="Alexandru at work">
-      </section>
+    <section class="about">
+      <div>
+        <h2>About</h2>
+        <p>I am a software architect and developer with a passion for designing and building efficient, high-quality software systems. I thrive on solving complex challenges and delivering value through well-engineered solutions.</p>
+      </div>
+      <img class="about-portrait" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80" alt="Alexandru at work">
+    </section>
 
-      <section id="services" class="services">
-        <h2>Services</h2>
-        <div class="services-grid">
-          <article class="service-card">
-            <h3>Software Architecture</h3>
-            <p>Designing robust system architectures, ensuring scalability, reliability, and clarity across all tiers.</p>
-          </article>
-          <article class="service-card">
-            <h3>Full-Stack Development</h3>
-            <p>Hands-on development across modern web stacks with a focus on quality, testing, and maintainability.</p>
-          </article>
-          <article class="service-card">
-            <h3>System Design & Scalability</h3>
-            <p>Helping teams design systems that grow with their business through performance tuning and capacity planning.</p>
-          </article>
-          <article class="service-card">
-            <h3>Technical Mentoring</h3>
-            <p>Supporting engineers and teams with best practices, architecture reviews, and collaborative problem solving.</p>
-          </article>
-        </div>
-      </section>
+    <section id="services" class="services">
+      <h2>Services</h2>
+      <div class="services-grid">
+        <article class="service-card">
+          <h3>Software Architecture</h3>
+          <p>Designing robust system architectures, ensuring scalability, reliability, and clarity across all tiers.</p>
+        </article>
+        <article class="service-card">
+          <h3>Full-Stack Development</h3>
+          <p>Hands-on development across modern web stacks with a focus on quality, testing, and maintainability.</p>
+        </article>
+        <article class="service-card">
+          <h3>System Design & Scalability</h3>
+          <p>Helping teams design systems that grow with their business through performance tuning and capacity planning.</p>
+        </article>
+        <article class="service-card">
+          <h3>Technical Mentoring</h3>
+          <p>Supporting engineers and teams with best practices, architecture reviews, and collaborative problem solving.</p>
+        </article>
+      </div>
+    </section>
 
-      <section id="work" class="work">
-        <h2>Selected Work</h2>
-        <div class="work-grid">
-          <article class="work-card">
-            <span>Project One</span>
-            <h3>Scalable SaaS Platform</h3>
-            <p>Built a resilient cloud-native platform serving thousands of concurrent customers worldwide.</p>
-          </article>
-          <article class="work-card">
-            <span>Project Two</span>
-            <h3>Data Processing Pipeline</h3>
-            <p>Architected and implemented a real-time data processing pipeline with advanced observability.</p>
-          </article>
-          <article class="work-card">
-            <span>Project Three</span>
-            <h3>Legacy Modernization</h3>
-            <p>Led the modernization of a mission-critical legacy system, improving reliability and developer velocity.</p>
-          </article>
-        </div>
-      </section>
+    <section id="work" class="work">
+      <h2>Selected Work</h2>
+      <div class="work-grid">
+        <article class="work-card">
+          <span>Project One</span>
+          <h3>Scalable SaaS Platform</h3>
+          <p>Built a resilient cloud-native platform serving thousands of concurrent customers worldwide.</p>
+        </article>
+        <article class="work-card">
+          <span>Project Two</span>
+          <h3>Data Processing Pipeline</h3>
+          <p>Architected and implemented a real-time data processing pipeline with advanced observability.</p>
+        </article>
+        <article class="work-card">
+          <span>Project Three</span>
+          <h3>Legacy Modernization</h3>
+          <p>Led the modernization of a mission-critical legacy system, improving reliability and developer velocity.</p>
+        </article>
+      </div>
+    </section>
 
-      <section id="contact" class="contact">
-        <h2>Get in touch</h2>
-        <p>Have a project in mind or need support with your engineering roadmap? Let's discuss how we can collaborate.</p>
-        <a class="btn-primary" href="mailto:alex@dascal.tech">Email Alex</a>
-      </section>
-    </main>
+    <section id="contact" class="contact">
+      <h2>Get in touch</h2>
+      <p>Have a project in mind or need support with your engineering roadmap? Let's discuss how we can collaborate.</p>
+      <a class="btn-primary" href="mailto:alexandru@dascal.nl">Email Alex</a>
+    </section>
+  </main>
 
-    <footer>
-      &copy; <span id="year"></span> Dascal Tech. All rights reserved.
-    </footer>
-  </div>
+  <footer>
+    &copy; <span id="year"></span> Dascal Tech. All rights reserved.
+  </footer>
+</div>
 
-  <script>
-    const yearElement = document.getElementById('year');
-    if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
-    }
-  </script>
+<script>
+  const yearElement = document.getElementById('year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+</script>
 </body>
 </html>
